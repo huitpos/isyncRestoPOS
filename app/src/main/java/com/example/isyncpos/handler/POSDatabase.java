@@ -62,6 +62,9 @@ import com.example.isyncpos.dao.SpotAuditDAO;
 import com.example.isyncpos.dao.SpotAuditDenominationDAO;
 import com.example.isyncpos.dao.SubCategoriesDAO;
 import com.example.isyncpos.dao.SyncDAO;
+import com.example.isyncpos.dao.TableStatusDAO;
+import com.example.isyncpos.dao.TableTypesDAO;
+import com.example.isyncpos.dao.TablesDAO;
 import com.example.isyncpos.dao.TransactionsDAO;
 import com.example.isyncpos.dao.UploadDAO;
 import com.example.isyncpos.dao.UsersDAO;
@@ -118,6 +121,9 @@ import com.example.isyncpos.entity.SpotAudit;
 import com.example.isyncpos.entity.SpotAuditDenomination;
 import com.example.isyncpos.entity.SubCategories;
 import com.example.isyncpos.entity.Sync;
+import com.example.isyncpos.entity.TableStatus;
+import com.example.isyncpos.entity.TableTypes;
+import com.example.isyncpos.entity.Tables;
 import com.example.isyncpos.entity.Transactions;
 import com.example.isyncpos.entity.Upload;
 import com.example.isyncpos.entity.Users;
@@ -181,8 +187,11 @@ import java.util.concurrent.Executors;
     CutOffProducts.class,
     EndOffDayProducts.class,
     PriceChangeReason.class,
-    ProductLocations.class
-}, version = 129)
+    ProductLocations.class,
+    Tables.class,
+    TableTypes.class,
+    TableStatus.class
+}, version = 130)
 public abstract class POSDatabase extends RoomDatabase {
 
     private static POSDatabase instance;
@@ -243,6 +252,9 @@ public abstract class POSDatabase extends RoomDatabase {
     public abstract EndOfDayProductsDAO endOfDayProductsDAO();
     public abstract PriceChangeReasonDAO priceChangeReasonDAO();
     public abstract ProductLocationsDAO productLocationsDAO();
+    public abstract TablesDAO tablesDAO();
+    public abstract TableTypesDAO tableTypesDAO();
+    public abstract TableStatusDAO tableStatusDAO();
 
     public static synchronized POSDatabase getInstance(Context context){
         if(instance == null){

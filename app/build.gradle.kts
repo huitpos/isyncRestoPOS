@@ -111,7 +111,7 @@ android {
             buildConfigField("int", "POS_ACCESS_SCAN_BARCODE", "684")
             buildConfigField("int", "POS_ACCESS_VIEW_DEPARTMENTS", "685")
             buildConfigField("int", "POS_API_TIMER_TRY_COUNTER", "5")
-            buildConfigField("int", "APP_NAVIGATION_HAS_AR", "1")
+            buildConfigField("int", "APP_NAVIGATION_HAS_AR", "0")
             buildConfigField("String", "ENV", "\"DEVELOPMENT\"")
         }
         release {
@@ -191,7 +191,7 @@ android {
             buildConfigField("int", "POS_ACCESS_SCAN_BARCODE", "684")
             buildConfigField("int", "POS_ACCESS_VIEW_DEPARTMENTS", "685")
             buildConfigField("int", "POS_API_TIMER_TRY_COUNTER", "5")
-            buildConfigField("int", "APP_NAVIGATION_HAS_AR", "1")
+            buildConfigField("int", "APP_NAVIGATION_HAS_AR", "0")
             buildConfigField("String", "ENV", "\"PRODUCTION\"")
             isMinifyEnabled = false
             proguardFiles(
