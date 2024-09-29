@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="10dp"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="10dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:visibility="visible"
+            android:id="@+id/menuItemImage"
+            android:layout_width="1080dp"
+            android:scaleType="centerCrop"
+            android:layout_height="100dp"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="-9dp"
+            android:gravity="right">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnItemInformation"
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:alpha=".5"
+                android:layout_marginEnd="1dp"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/sfuitextregular"
+                app:icon="@drawable/baseline_info_24"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:iconSize="20dp"
+                app:iconTint="@color/link" />
+
+        </LinearLayout>
+
+<!--        <ProgressBar-->
+<!--            android:visibility="visible"-->
+<!--            android:id="@+id/menuLoadingImage"-->
+<!--            android:layout_width="720dp"-->
+<!--            android:padding="25dp"-->
+<!--            android:layout_height="100dp" />-->
+
+        <TextView
+            android:id="@+id/menuItemName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chicken Masala"
+            android:textSize="12dp"
+            android:paddingLeft="5dp"
+            android:fontFamily="@font/sfprotextbold"
+            android:layout_below="@+id/menuItemImage" />
+
+        <TextView
+            android:id="@+id/menuItemDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Spicy indian chicken dish with gravy."
+            android:layout_below="@id/menuItemName"
+            android:fontFamily="@font/sfuitextregular"
+            android:textSize="10dp"
+            android:paddingLeft="5dp"
+            android:alpha=".8"/>
+
+        <TextView
+            android:id="@+id/menuItemPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="120.00"
+            android:paddingLeft="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_below="@id/menuItemDescription"
+            android:fontFamily="@font/sfprotextbold"
+            android:textSize="12dp"/>
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

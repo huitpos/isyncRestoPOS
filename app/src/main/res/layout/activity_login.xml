@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_background"
+    tools:context=".LoginActivity">
+
+    <LinearLayout
+        android:layout_width="720dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="10dp"
+        android:orientation="vertical"
+        >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            >
+
+            <ImageView
+                android:id="@+id/loginISYNCLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/isynclogo" />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/loginISYNCLogo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="iSync POS"
+                android:textSize="25dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/sfprotextbold"
+                android:textAlignment="center"
+                />
+
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="#F8F6F0"
+            android:alpha=".8"
+            app:cardElevation="2dp"
+            app:cardUseCompatPadding="true"
+            app:cardCornerRadius="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                >
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tilUsername"
+                    android:padding="10dp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    >
+
+                    <EditText
+                        android:id="@+id/textUsername"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:drawableLeft="@drawable/baseline_person_outline_24"
+                        android:drawablePadding="20dp"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:hint="Username"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:text="jim623" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_below="@id/tilUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tilPassword"
+                    android:padding="10dp"
+                    app:startIconDrawable="@drawable/baseline_info_24"
+                    app:startIconTint="@color/black"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    app:passwordToggleEnabled="true"
+                    >
+
+                    <EditText
+                        android:id="@+id/textPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        android:text="JimCal@23" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="LOGIN"
+                    app:backgroundTint="@color/acolor"
+                    android:layout_below="@id/tilPassword"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:ems="15"
+                    android:id="@+id/btnAuthenticate"
+                    android:fontFamily="@font/sfprotextbold"
+                    />
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/loginSettingsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="10dp"
+                    android:text="VERSION BUILD: 1.0.0"
+                    android:id="@+id/lblVersion"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sfprotextbold"
+                    />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnKioskConfirm"
+                    android:layout_width="25dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sfuitextregular"
+                    android:background="@android:color/transparent"
+                    app:iconTint="@color/link"
+                    app:iconGravity="textStart"
+                    app:iconPadding="0dp"
+                    app:iconSize="20dp"
+                    android:alpha=".5"
+                    app:icon="@drawable/baseline_settings_24" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginTop="-10dp"
+                android:layout_below="@id/loginSettingsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="iSync Enterprise Inc."
+                android:textSize="16dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:fontFamily="@font/sfuitextregular"
+                android:textAlignment="center"
+                />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

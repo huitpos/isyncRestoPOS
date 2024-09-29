@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:weightSum="1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_marginLeft="15dp"
+            android:id="@+id/txtItemDiscount"
+            android:layout_weight=".8"
+            android:layout_width="0dp"
+            android:fontFamily="@font/sfprotextbold"
+            android:text="Senior Discount - 20%"
+            android:layout_height="wrap_content"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnItemDiscountRemove"
+            android:layout_marginRight="10dp"
+            android:layout_weight=".2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sfuitextregular"
+            android:textColor="@color/acolor"
+            app:backgroundTint="@android:color/transparent"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:textSize="10dp"
+            app:cornerRadius="0dp"
+            app:strokeColor="@color/scolor"
+            android:text="Remove"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

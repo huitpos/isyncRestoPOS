@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:weightSum="1"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:layout_weight=".1"
+            android:src="@drawable/baseline_print_24"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+
+        <RelativeLayout
+            android:layout_weight=".4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/itemDeviceName"
+                android:text="Name"
+                android:textSize="14dp"
+                android:fontFamily="@font/sfprotextbold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_below="@id/itemDeviceName"
+                android:id="@+id/itemDeviceConnection"
+                android:text="Offline"
+                android:textSize="11dp"
+                android:alpha=".7"
+                android:fontFamily="@font/sfuitextregular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/linearDeviceLoading"
+            android:visibility="gone"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearDeviceActions"
+            android:gravity="center"
+            android:weightSum="1"
+            android:layout_weight=".5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnItemDeviceTest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sfuitextregular"
+                android:textColor="@color/acolor"
+                app:backgroundTint="@android:color/transparent"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textSize="10dp"
+                app:cornerRadius="0dp"
+                app:strokeColor="@color/scolor"
+                android:layout_marginHorizontal="5dp"
+                android:text="Test"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnItemDeviceRemove"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sfuitextregular"
+                android:textColor="@color/acolor"
+                app:backgroundTint="@android:color/transparent"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textSize="10dp"
+                app:cornerRadius="0dp"
+                android:layout_marginHorizontal="5dp"
+                app:strokeColor="@color/scolor"
+                android:text="Remove"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

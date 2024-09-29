@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".9"
+        android:weightSum="1"
+        android:orientation="horizontal"
+        >
+
+        <FrameLayout
+            android:id="@+id/fragmentMenu"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".7"
+            android:background="@color/lightGray"
+            />
+
+
+        <FrameLayout
+            android:id="@+id/fragmentOrder"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".3"
+            android:background="#F8F6F0"
+            />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:elevation="5dp"
+        android:id="@+id/fragmentNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".1"
+        android:background="#F8F6F0"
+        />
+
+</LinearLayout>

@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:elevation="2dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:weightSum="1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight=".15"
+            android:layout_width="0dp"
+            android:weightSum="1"
+            android:layout_height="match_parent">
+
+            <ScrollView
+                android:layout_weight=".95"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:id="@+id/linearPaymentTypes"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                </LinearLayout>
+
+            </ScrollView>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_weight=".05"
+                android:id="@+id/btnPaymentsBack"
+                app:cornerRadius="0dp"
+                app:iconGravity="textStart"
+                android:background="@android:color/transparent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:fontFamily="@font/sfprotextbold"
+                android:textSize="14dp"
+                app:icon="@drawable/baseline_keyboard_backspace_24"
+                app:iconTint="@color/black"
+                android:text="Cancel"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:background="@color/lightGray"
+            android:weightSum="1"
+            android:layout_weight=".85"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginVertical="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:weightSum="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_weight=".9"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/labelPaymentType"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:fontFamily="@font/sfprotextbold"
+                                android:text="Cash"
+                                android:textSize="14dp" />
+
+                            <View
+                                android:id="@+id/separator1"
+                                android:layout_below="@id/labelPaymentType"
+                                android:layout_width="match_parent"
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_height="1dp"
+                                android:alpha=".1"
+                                android:background="@color/black" />
+
+                        </RelativeLayout>
+
+<!--                        Add Payment Form-->
+                        <LinearLayout
+                            android:id="@+id/layoutAddPaymentForm"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_below="@id/cardViewTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/tilPaymentAmount"
+                                android:padding="10dp"
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                >
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Amount"
+                                    android:drawableLeft="@drawable/baseline_money_24"
+                                    android:drawablePadding="20dp"
+                                    android:layout_marginTop="10dp"
+                                    android:id="@+id/txtPaymentAmount"
+                                    android:fontFamily="@font/sfuitextregular"
+                                    android:inputType="numberDecimal"
+                                    android:selectAllOnFocus="true"
+                                    />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <LinearLayout
+                                android:gravity="right"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <CheckBox
+                                    android:id="@+id/checkboxPaymentAdvance"
+                                    android:layout_marginRight="14dp"
+                                    android:fontFamily="@font/sfuitextregular"
+                                    android:textSize="14dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Advance Payment" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+<!--                        OR Form-->
+                        <LinearLayout
+                            android:id="@+id/layoutORForm"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_below="@id/cardViewTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/tilORName"
+                                android:padding="10dp"
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                >
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Name"
+                                    android:layout_marginTop="10dp"
+                                    android:id="@+id/txtORName"
+                                    android:fontFamily="@font/sfuitextregular"
+                                    android:inputType="text"
+                                    />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_below="@id/cardViewTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/tilORAddress"
+                                android:padding="10dp"
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                >
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Address"
+                                    android:layout_marginTop="10dp"
+                                    android:id="@+id/txtORAddress"
+                                    android:fontFamily="@font/sfuitextregular"
+                                    android:inputType="text"
+                                    />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_below="@id/cardViewTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/tilORTIN"
+                                android:padding="10dp"
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                >
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="TIN"
+                                    android:layout_marginTop="10dp"
+                                    android:id="@+id/txtORTIN"
+                                    android:fontFamily="@font/sfuitextregular"
+                                    android:inputType="text"
+                                    />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_below="@id/cardViewTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/tilORBusinessStyle"
+                                android:padding="10dp"
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                >
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Address"
+                                    android:layout_marginTop="10dp"
+                                    android:id="@+id/txtORBusinessStyle"
+                                    android:fontFamily="@font/sfuitextregular"
+                                    android:inputType="text"
+                                    />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:gravity="bottom"
+                        android:layout_weight=".1"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_margin="5dp"
+                            app:cornerRadius="0dp"
+                            android:id="@+id/btnAddPayment"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sfuitextregular"
+                            android:text="ADD CASH PAYMENT"
+                            android:textSize="14dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_margin="10dp"
+                android:layout_weight=".5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:weightSum="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_weight=".9"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:orientation="vertical">
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/labelPayments"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:fontFamily="@font/sfprotextbold"
+                                android:text="Payments"
+                                android:textSize="14dp" />
+
+                            <View
+                                android:id="@+id/separator2"
+                                android:layout_below="@id/labelPayments"
+                                android:layout_width="match_parent"
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_height="1dp"
+                                android:alpha=".1"
+                                android:background="@color/black" />
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:weightSum="1"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight=".5">
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/recyclerPayments"
+                                    tools:listitem="@layout/item_payment"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight=".1">
+
+                                <TextView
+                                    android:id="@+id/labelTransactionRemarks"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="Remarks: "
+                                    android:fontFamily="@font/sfuitextregular"
+                                    android:textSize="14dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:layout_marginHorizontal="10dp"/>
+
+                            </LinearLayout>
+
+                            <View
+                                android:id="@+id/separator3"
+                                android:layout_width="match_parent"
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_height="1dp"
+                                android:alpha=".1"
+                                android:background="@color/black" />
+
+                            <LinearLayout
+                                android:gravity="center_vertical"
+                                android:weightSum="1"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight=".4">
+
+                                <RelativeLayout
+                                    android:layout_weight=".5"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content">
+
+<!--                                    <TextView-->
+<!--                                        android:id="@+id/labelGuestName"-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="wrap_content"-->
+<!--                                        android:text="Name: "-->
+<!--                                        android:fontFamily="@font/sfuitextregular"-->
+<!--                                        android:textSize="14dp"-->
+<!--                                        android:layout_marginVertical="5dp"-->
+<!--                                        android:layout_marginHorizontal="10dp"/>-->
+
+<!--                                    <TextView-->
+<!--                                        android:layout_below="@id/labelGuestName"-->
+<!--                                        android:id="@+id/labelGuestAddress"-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="wrap_content"-->
+<!--                                        android:text="Address: "-->
+<!--                                        android:fontFamily="@font/sfuitextregular"-->
+<!--                                        android:textSize="14dp"-->
+<!--                                        android:layout_marginVertical="5dp"-->
+<!--                                        android:layout_marginHorizontal="10dp"/>-->
+
+<!--                                    <TextView-->
+<!--                                        android:layout_below="@id/labelGuestAddress"-->
+<!--                                        android:id="@+id/labelGuestTIN"-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="wrap_content"-->
+<!--                                        android:text="TIN #: "-->
+<!--                                        android:fontFamily="@font/sfuitextregular"-->
+<!--                                        android:textSize="14dp"-->
+<!--                                        android:layout_marginVertical="5dp"-->
+<!--                                        android:layout_marginHorizontal="10dp"/>-->
+
+<!--                                    <TextView-->
+<!--                                        android:layout_below="@id/labelGuestTIN"-->
+<!--                                        android:id="@+id/labelGuestBusinessStyle"-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="wrap_content"-->
+<!--                                        android:text="Business Style: "-->
+<!--                                        android:fontFamily="@font/sfuitextregular"-->
+<!--                                        android:textSize="14dp"-->
+<!--                                        android:layout_marginVertical="5dp"-->
+<!--                                        android:layout_marginHorizontal="10dp"/>-->
+
+                                    <TextView
+                                        android:id="@+id/labelTransactionTendered"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Tendered: "
+                                        android:fontFamily="@font/sfuitextregular"
+                                        android:textSize="14dp"
+                                        android:layout_marginVertical="5dp"
+                                        android:layout_marginHorizontal="10dp"/>
+
+                                    <TextView
+                                        android:layout_below="@id/labelTransactionTendered"
+                                        android:id="@+id/labelTransactionAmountDue"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Amount Due: "
+                                        android:fontFamily="@font/sfuitextregular"
+                                        android:textSize="14dp"
+                                        android:layout_marginVertical="5dp"
+                                        android:layout_marginHorizontal="10dp"/>
+
+                                    <TextView
+                                        android:layout_below="@id/labelTransactionAmountDue"
+                                        android:id="@+id/labelTransactionChange"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Change: "
+                                        android:fontFamily="@font/sfuitextregular"
+                                        android:textSize="14dp"
+                                        android:layout_marginVertical="5dp"
+                                        android:layout_marginHorizontal="10dp"/>
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_weight=".5"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content">
+
+<!--                                    <TextView-->
+<!--                                        android:gravity="right"-->
+<!--                                        android:id="@+id/labelGuestNameValue"-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="wrap_content"-->
+<!--                                        android:text="N/A"-->
+<!--                                        android:fontFamily="@font/sfuitextregular"-->
+<!--                                        android:textSize="14dp"-->
+<!--                                        android:layout_marginVertical="5dp"-->
+<!--                                        android:layout_marginHorizontal="10dp"/>-->
+
+<!--                                    <TextView-->
+<!--                                        android:gravity="right"-->
+<!--                                        android:layout_below="@id/labelGuestNameValue"-->
+<!--                                        android:id="@+id/labelGuestAddressValue"-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="wrap_content"-->
+<!--                                        android:text="N/A"-->
+<!--                                        android:fontFamily="@font/sfuitextregular"-->
+<!--                                        android:textSize="14dp"-->
+<!--                                        android:layout_marginVertical="5dp"-->
+<!--                                        android:layout_marginHorizontal="10dp"/>-->
+
+<!--                                    <TextView-->
+<!--                                        android:gravity="right"-->
+<!--                                        android:layout_below="@id/labelGuestAddressValue"-->
+<!--                                        android:id="@+id/labelGuestTINValue"-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="wrap_content"-->
+<!--                                        android:text="N/A"-->
+<!--                                        android:fontFamily="@font/sfuitextregular"-->
+<!--                                        android:textSize="14dp"-->
+<!--                                        android:layout_marginVertical="5dp"-->
+<!--                                        android:layout_marginHorizontal="10dp"/>-->
+
+<!--                                    <TextView-->
+<!--                                        android:gravity="right"-->
+<!--                                        android:layout_below="@id/labelGuestTINValue"-->
+<!--                                        android:id="@+id/labelGuestBusinessStyleValue"-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="wrap_content"-->
+<!--                                        android:text="N/A"-->
+<!--                                        android:fontFamily="@font/sfuitextregular"-->
+<!--                                        android:textSize="14dp"-->
+<!--                                        android:layout_marginVertical="5dp"-->
+<!--                                        android:layout_marginHorizontal="10dp"/>-->
+
+                                    <TextView
+                                        android:gravity="right"
+                                        android:id="@+id/labelTransactionTenderedValue"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="0.00"
+                                        android:fontFamily="@font/sfuitextregular"
+                                        android:textSize="14dp"
+                                        android:layout_marginVertical="5dp"
+                                        android:layout_marginHorizontal="10dp"/>
+
+                                    <TextView
+                                        android:gravity="right"
+                                        android:layout_below="@id/labelTransactionTenderedValue"
+                                        android:id="@+id/labelTransactionAmountDueValue"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="0.00"
+                                        android:fontFamily="@font/sfuitextregular"
+                                        android:textSize="14dp"
+                                        android:layout_marginVertical="5dp"
+                                        android:layout_marginHorizontal="10dp"/>
+
+                                    <TextView
+                                        android:gravity="right"
+                                        android:layout_below="@id/labelTransactionAmountDueValue"
+                                        android:id="@+id/labelTransactionChangeValue"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="0.00"
+                                        android:fontFamily="@font/sfuitextregular"
+                                        android:textSize="14dp"
+                                        android:layout_marginVertical="5dp"
+                                        android:layout_marginHorizontal="10dp"/>
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:gravity="bottom"
+                        android:layout_weight=".1"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_margin="5dp"
+                            app:cornerRadius="0dp"
+                            android:id="@+id/btnPaymentComplete"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sfuitextregular"
+                            android:text="COMPLETE TRANSACTION"
+                            android:textSize="14dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

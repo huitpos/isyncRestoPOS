@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="5dp"
+    app:cardCornerRadius="3dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/imgPOSLogoPlaceholder"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_marginVertical="15dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgPOSLogo"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:src="@drawable/isynclogo"/>
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/viewBorder1"
+            android:layout_marginHorizontal="20dp"
+            android:layout_below="@id/imgPOSLogoPlaceholder"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/black"
+            android:alpha=".2"
+            android:layout_marginVertical="3dp"/>
+
+        <TextView
+            android:layout_below="@id/viewBorder1"
+            android:id="@+id/labelTitle"
+            android:layout_marginVertical="10dp"
+            android:textSize="15dp"
+            android:text="SYSTEM INFORMATION"
+            android:fontFamily="@font/sfprotextbold"
+            android:layout_width="match_parent"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_below="@+id/labelTitle"
+            android:weightSum="1"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_marginVertical="10dp"
+                android:orientation="vertical"
+                android:layout_weight=".6"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:text="POS TYPE:"
+                        android:alpha=".8"
+                        android:fontFamily="@font/sfprotextbold"
+                        android:layout_weight=".5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/labelSystemPOSType"
+                        android:textAlignment="textEnd"
+                        android:text="RETAIL"
+                        android:layout_weight=".5"
+                        android:layout_width="0dp"
+                        android:alpha=".8"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:text="POS PROVIDER:"
+                        android:alpha=".8"
+                        android:fontFamily="@font/sfprotextbold"
+                        android:layout_weight=".5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/labelSystemPOSProvider"
+                        android:textAlignment="textEnd"
+                        android:text="ISYNC"
+                        android:layout_weight=".5"
+                        android:layout_width="0dp"
+                        android:alpha=".8"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:text="POS VERSION:"
+                        android:alpha=".8"
+                        android:fontFamily="@font/sfprotextbold"
+                        android:layout_weight=".5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/labelSystemPOSVersion"
+                        android:text="1.0.0"
+                        android:textAlignment="textEnd"
+                        android:layout_weight=".5"
+                        android:layout_width="0dp"
+                        android:alpha=".8"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/viewBorder2"
+                    android:layout_below="@id/imgPOSLogoPlaceholder"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/black"
+                    android:alpha=".2"
+                    android:layout_marginVertical="3dp"/>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:text="BRAND:"
+                        android:alpha=".8"
+                        android:fontFamily="@font/sfprotextbold"
+                        android:layout_weight=".5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/labelSystemPOSBrand"
+                        android:text="BRAND"
+                        android:textAlignment="textEnd"
+                        android:layout_weight=".5"
+                        android:layout_width="0dp"
+                        android:alpha=".8"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:text="MODEL:"
+                        android:alpha=".8"
+                        android:fontFamily="@font/sfprotextbold"
+                        android:layout_weight=".5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/labelSystemPOSModel"
+                        android:text="MODEL"
+                        android:textAlignment="textEnd"
+                        android:layout_weight=".5"
+                        android:layout_width="0dp"
+                        android:alpha=".8"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:text="ID:"
+                        android:alpha=".8"
+                        android:fontFamily="@font/sfprotextbold"
+                        android:layout_weight=".5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/labelSystemPOSID"
+                        android:text="1"
+                        android:textAlignment="textEnd"
+                        android:layout_weight=".5"
+                        android:layout_width="0dp"
+                        android:alpha=".8"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:text="SDK:"
+                        android:alpha=".8"
+                        android:fontFamily="@font/sfprotextbold"
+                        android:layout_weight=".5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/labelSystemPOSSDK"
+                        android:text="1"
+                        android:textAlignment="textEnd"
+                        android:layout_weight=".5"
+                        android:layout_width="0dp"
+                        android:alpha=".8"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:text="MANUFACTURER:"
+                        android:alpha=".8"
+                        android:fontFamily="@font/sfprotextbold"
+                        android:layout_weight=".5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/labelSystemPOSManufacturer"
+                        android:text="MANUFACTURER"
+                        android:textAlignment="textEnd"
+                        android:layout_weight=".5"
+                        android:layout_width="0dp"
+                        android:alpha=".8"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:text="VERSION CODE:"
+                        android:alpha=".8"
+                        android:fontFamily="@font/sfprotextbold"
+                        android:layout_weight=".5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/labelSystemPOSVersionCode"
+                        android:text="8.0.0"
+                        android:textAlignment="textEnd"
+                        android:layout_weight=".5"
+                        android:layout_width="0dp"
+                        android:alpha=".8"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

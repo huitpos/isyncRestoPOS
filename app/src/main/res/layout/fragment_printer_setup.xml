@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="5dp"
+    app:cardCornerRadius="3dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/labelTitle"
+            android:layout_marginVertical="10dp"
+            android:textSize="15dp"
+            android:text="PRINTER SETUP"
+            android:fontFamily="@font/sfprotextbold"
+            android:layout_width="match_parent"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"/>
+
+        <View
+            android:layout_below="@+id/labelTitle"
+            android:id="@+id/viewBorder1"
+            android:layout_marginHorizontal="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/black"
+            android:alpha=".2"
+            android:layout_marginVertical="3dp"/>
+
+        <LinearLayout
+            android:layout_below="@+id/labelTitle"
+            android:weightSum="1"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_marginVertical="10dp"
+                android:orientation="vertical"
+                android:layout_weight=".6"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:weightSum="1"
+                        android:orientation="horizontal"
+                        android:layout_weight=".03"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp">
+
+                        <TextView
+                            android:textAlignment="center"
+                            android:fontFamily="@font/sfprotextbold"
+                            android:textSize="12dp"
+                            android:text="AVAILABLE PRINTERS"
+                            android:layout_marginHorizontal="15dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:weightSum="1"
+                        android:layout_margin="5dp"
+                        android:orientation="horizontal"
+                        android:layout_weight=".07"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp">
+
+                        <Spinner
+                            android:id="@+id/spinnerAvailablePrinter"
+                            style="@style/Widget.AppCompat.Spinner.Underlined"
+                            android:spinnerMode="dropdown"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:gravity="center"
+                        android:weightSum="1"
+                        android:orientation="horizontal"
+                        android:layout_weight=".07"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_marginHorizontal="5dp"
+                            android:text="ADD"
+                            android:id="@+id/btnPrinterSetupAdd"
+                            android:layout_weight=".31"
+                            android:layout_width="0dp"
+                            android:fontFamily="@font/sfprotextbold"
+                            android:textSize="12dp"
+                            android:layout_height="wrap_content"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_marginHorizontal="5dp"
+                            android:text="SELECT ALL"
+                            android:id="@+id/btnPrinterSetupSelectAll"
+                            android:layout_weight=".31"
+                            android:layout_width="0dp"
+                            android:fontFamily="@font/sfprotextbold"
+                            android:textSize="12dp"
+                            android:layout_height="wrap_content"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_marginHorizontal="5dp"
+                            android:text="DELETE ALL"
+                            android:id="@+id/btnPrinterSetupDeleteAll"
+                            android:layout_weight=".31"
+                            android:layout_width="0dp"
+                            android:fontFamily="@font/sfprotextbold"
+                            android:textSize="12dp"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerPrinterSetup"
+                        android:layout_marginVertical="10dp"
+                        android:layout_weight=".84"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

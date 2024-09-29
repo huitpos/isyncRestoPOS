@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardElevation="2dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewTitle"
+                    app:cardElevation="5dp"
+                    app:cardBackgroundColor="@color/scolor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/txtAuthDialogTitle"
+                            android:textAlignment="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sfprotextbold"
+                            android:textSize="20dp"
+                            android:alpha=".7"
+                            android:paddingVertical="10dp"
+                            android:text="PRODUCT INFORMATION"/>
+
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:id="@+id/linearLayoutMenuItemInformation"
+                    android:layout_below="@id/cardViewTitle"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="27dp"
+                    android:weightSum="1"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                        <RelativeLayout
+                            android:layout_weight=".5"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/labelDescription"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Product Description: "
+                                    android:fontFamily="@font/sfuitextregular"
+                                    android:textSize="14dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:layout_marginHorizontal="10dp"/>
+
+                                <TextView
+                                    android:layout_below="@id/labelDescription"
+                                    android:id="@+id/labelBarcode"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Barcode: "
+                                    android:fontFamily="@font/sfuitextregular"
+                                    android:textSize="14dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:layout_marginHorizontal="10dp"/>
+
+                                <TextView
+                                    android:layout_below="@id/labelBarcode"
+                                    android:id="@+id/labelSRP"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="SRP: "
+                                    android:fontFamily="@font/sfuitextregular"
+                                    android:textSize="14dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:layout_marginHorizontal="10dp"/>
+
+                                <TextView
+                                    android:layout_below="@id/labelSRP"
+                                    android:id="@+id/labelCost"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Cost: "
+                                    android:fontFamily="@font/sfuitextregular"
+                                    android:textSize="14dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:layout_marginHorizontal="10dp"/>
+
+                                <TextView
+                                    android:layout_below="@id/labelCost"
+                                    android:id="@+id/labelUOM"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="UOM: "
+                                    android:fontFamily="@font/sfuitextregular"
+                                    android:textSize="14dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:layout_marginHorizontal="10dp"/>
+
+                                <TextView
+                                    android:layout_below="@id/labelUOM"
+                                    android:id="@+id/labelStockOnHand"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Stock On Hand: "
+                                    android:fontFamily="@font/sfuitextregular"
+                                    android:textSize="14dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:layout_marginHorizontal="10dp"/>
+
+                                <TextView
+                                    android:layout_below="@id/labelStockOnHand"
+                                    android:id="@+id/labelItemLocation"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Item Location: "
+                                    android:fontFamily="@font/sfuitextregular"
+                                    android:textSize="14dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:layout_marginHorizontal="10dp"/>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_weight=".5"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:gravity="right"
+                                    android:id="@+id/labelDescriptionValue"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="DESCRIPTION"
+                                    android:fontFamily="@font/sfuitextregular"
+                                    android:textSize="14dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:layout_marginHorizontal="10dp"/>
+
+                                <TextView
+                                    android:gravity="right"
+                                    android:layout_below="@id/labelDescriptionValue"
+                                    android:id="@+id/labelBarcodeValue"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Barcode"
+                                    android:fontFamily="@font/sfuitextregular"
+                                    android:textSize="14dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:layout_marginHorizontal="10dp"/>
+
+                                <TextView
+                                    android:gravity="right"
+                                    android:layout_below="@id/labelBarcodeValue"
+                                    android:id="@+id/labelSRPValue"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="0.00"
+                                    android:fontFamily="@font/sfuitextregular"
+                                    android:textSize="14dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:layout_marginHorizontal="10dp"/>
+
+                                <TextView
+                                    android:gravity="right"
+                                    android:layout_below="@id/labelSRPValue"
+                                    android:id="@+id/labelCostValue"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="0.00"
+                                    android:fontFamily="@font/sfuitextregular"
+                                    android:textSize="14dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:layout_marginHorizontal="10dp"/>
+
+                                <TextView
+                                    android:gravity="right"
+                                    android:layout_below="@id/labelCostValue"
+                                    android:id="@+id/labelUOMValue"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="UOM"
+                                    android:fontFamily="@font/sfuitextregular"
+                                    android:textSize="14dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:layout_marginHorizontal="10dp"/>
+
+                                <TextView
+                                    android:gravity="right"
+                                    android:layout_below="@id/labelUOMValue"
+                                    android:id="@+id/labelStockOnHandValue"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="0.00"
+                                    android:fontFamily="@font/sfuitextregular"
+                                    android:textSize="14dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:layout_marginHorizontal="10dp"/>
+
+                                <TextView
+                                    android:gravity="right"
+                                    android:layout_below="@id/labelStockOnHandValue"
+                                    android:id="@+id/labelItemLocationValue"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Item Location"
+                                    android:fontFamily="@font/sfuitextregular"
+                                    android:textSize="14dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:layout_marginHorizontal="10dp"/>
+
+                        </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_below="@id/linearLayoutMenuItemInformation"
+                    android:gravity="right"
+                    android:layout_width="match_parent"
+                    android:paddingHorizontal="10dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnNegative"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sfuitextregular"
+                            android:textColor="@color/link"
+                            android:background="@android:color/transparent"
+                            android:layout_marginRight="5dp"
+                            android:text="Close"/>
+
+                </LinearLayout>
+
+        </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

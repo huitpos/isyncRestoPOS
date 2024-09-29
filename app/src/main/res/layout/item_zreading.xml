@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="5dp"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:elevation="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:weightSum="1"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_weight=".27"
+                android:weightSum="1"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <TextView
+                    android:layout_marginVertical="5dp"
+                    android:text="Z Reading Report"
+                    android:fontFamily="@font/sfuitextregular"
+                    android:textSize="14dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:weightSum="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_weight=".5"
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_marginVertical="3dp"
+                            android:text="Date"
+                            android:fontFamily="@font/sfuitextregular"
+                            android:textSize="14dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:layout_marginVertical="3dp"
+                            android:text="Time"
+                            android:fontFamily="@font/sfuitextregular"
+                            android:textSize="14dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:layout_marginVertical="3dp"
+                            android:text="Date Coverage"
+                            android:fontFamily="@font/sfuitextregular"
+                            android:textSize="14dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:layout_marginVertical="3dp"
+                            android:text="Z Count"
+                            android:fontFamily="@font/sfuitextregular"
+                            android:textSize="14dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:gravity="right"
+                        android:orientation="vertical"
+                        android:layout_weight=".5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_marginVertical="3dp"
+                            android:id="@+id/txtZReadingDate"
+                            android:text="2024-08-02"
+                            android:fontFamily="@font/sfuitextregular"
+                            android:textSize="14dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:layout_marginVertical="3dp"
+                            android:id="@+id/txtZReadingTime"
+                            android:text="06:46 PM"
+                            android:fontFamily="@font/sfuitextregular"
+                            android:textSize="14dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:layout_marginVertical="3dp"
+                            android:id="@+id/txtZReadingDateCoverage"
+                            android:text="2024-08-02 06:46 PM"
+                            android:fontFamily="@font/sfuitextregular"
+                            android:textSize="14dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:layout_marginVertical="3dp"
+                            android:id="@+id/txtZReadingCount"
+                            android:text="1"
+                            android:fontFamily="@font/sfuitextregular"
+                            android:textSize="14dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txtItemReceiptStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Status"
+                    android:textSize="14dp"
+                    android:textAlignment="center"
+                    android:visibility="gone"
+                    android:fontFamily="@font/sfprotextbold"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginVertical="5dp"
+                android:text="Sales Details"
+                android:fontFamily="@font/sfuitextregular"
+                android:textSize="14dp"
+                android:textAlignment="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_weight=".31"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="0dp">
+
+                <LinearLayout
+                    android:layout_weight=".5"
+                    android:orientation="vertical"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_marginVertical="5dp"
+                        android:text="Vatable Sales"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:textSize="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_marginVertical="5dp"
+                        android:text="Vat Amount"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:textSize="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_marginVertical="5dp"
+                        android:text="Vat Exempt Sales"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:textSize="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_marginVertical="5dp"
+                        android:text="Zero Rated Sales"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:textSize="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_marginVertical="5dp"
+                        android:text="Total Sales"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:textSize="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_marginVertical="5dp"
+                        android:text="Gross Receipt"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:textSize="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="right"
+                    android:orientation="vertical"
+                    android:layout_weight=".5"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_marginVertical="5dp"
+                        android:id="@+id/txtZReadingVatableSales"
+                        android:text="0.00"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:textSize="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_marginVertical="5dp"
+                        android:id="@+id/txtZReadingVatAmount"
+                        android:text="0.00"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:textSize="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_marginVertical="5dp"
+                        android:id="@+id/txtZReadingVatExemptSales"
+                        android:text="0.00"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:textSize="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_marginVertical="5dp"
+                        android:id="@+id/txtZReadingZeroRatedSales"
+                        android:text="0.00"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:textSize="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_marginVertical="5dp"
+                        android:id="@+id/txtZReadingTotalSales"
+                        android:text="0.00"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:textSize="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_marginVertical="5dp"
+                        android:id="@+id/txtZReadingGrossReceipt"
+                        android:text="0.00"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:textSize="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginVertical="5dp"
+                android:text="Accumulated Sales"
+                android:fontFamily="@font/sfuitextregular"
+                android:textSize="14dp"
+                android:textAlignment="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_weight=".34"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="0dp">
+
+                <LinearLayout
+                    android:layout_weight=".5"
+                    android:orientation="vertical"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_marginVertical="5dp"
+                        android:text="Beg. SI Number"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:textSize="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_marginVertical="5dp"
+                        android:text="End. SI Number"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:textSize="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_marginVertical="5dp"
+                        android:text="Item/Cust. Count"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:textSize="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_marginVertical="5dp"
+                        android:text="End Of Shift"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:textSize="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_marginVertical="5dp"
+                        android:text="Old Grand Total"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:textSize="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_marginVertical="5dp"
+                        android:text="New Grand Total"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:textSize="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="right"
+                    android:orientation="vertical"
+                    android:layout_weight=".5"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_marginVertical="5dp"
+                        android:id="@+id/txtZReadingBegSI"
+                        android:text="00000000000000000"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:textSize="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_marginVertical="5dp"
+                        android:id="@+id/txtZReadingEndSI"
+                        android:text="00000000000000000"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:textSize="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_marginVertical="5dp"
+                        android:id="@+id/txtZReadingItemCustCount"
+                        android:text="0"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:textSize="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_marginVertical="5dp"
+                        android:id="@+id/txtZReadingEndOfShift"
+                        android:text="1"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:textSize="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_marginVertical="5dp"
+                        android:id="@+id/txtZReadingOldGrandTotal"
+                        android:text="0.00"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:textSize="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_marginVertical="5dp"
+                        android:id="@+id/txtZReadingNewGrandTotal"
+                        android:text="0.00"
+                        android:fontFamily="@font/sfuitextregular"
+                        android:textSize="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="bottom"
+                android:layout_weight=".09"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <com.google.android.material.button.MaterialButton
+                    app:cornerRadius="0dp"
+                    android:id="@+id/btnViewZReadingReprint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sfuitextregular"
+                    android:text="REPRINT"
+                    android:textSize="14dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
