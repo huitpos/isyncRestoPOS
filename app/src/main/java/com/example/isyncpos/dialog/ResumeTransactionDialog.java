@@ -84,6 +84,6 @@ public class ResumeTransactionDialog extends DialogFragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        transactionsViewModel.fetchResumeTransactions().removeObservers(this);
+        transactionsViewModel.fetchResumeTransactions().removeObservers(getActivity());
     }
 }

@@ -274,9 +274,9 @@ public class PaymentDialog extends DialogFragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        transactionsViewModel.getCurrentTransaction().removeObservers(this);
-        paymentTypesViewModel.fetchAll().removeObservers(this);
-        paymentsViewModel.getCurrentTransactionPayments().removeObservers(this);
+        transactionsViewModel.getCurrentTransaction().removeObservers(getActivity());
+        paymentTypesViewModel.fetchAll().removeObservers(getActivity());
+        paymentsViewModel.getCurrentTransactionPayments().removeObservers(getActivity());
     }
 
     private void initialize(){

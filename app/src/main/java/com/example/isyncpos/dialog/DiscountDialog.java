@@ -158,8 +158,8 @@ public class DiscountDialog extends DialogFragment implements View.OnClickListen
     @Override
     public void onDetach() {
         super.onDetach();
-        discountTypesViewModel.fetchAll().removeObservers(this);
-        discountsViewModel.getCurrentTransactionDiscounts().removeObservers(this);
+        discountTypesViewModel.fetchAll().removeObservers(getActivity());
+        discountsViewModel.getCurrentTransactionDiscounts().removeObservers(getActivity());
     }
 
     private void initialize(){

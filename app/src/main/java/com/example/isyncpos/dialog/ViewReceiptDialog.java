@@ -180,10 +180,10 @@ public class ViewReceiptDialog extends DialogFragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        transactionsViewModel.fetchCompleteTransactions().removeObservers(this);
-        transactionsViewModel.fetchCompleteTransactionsCutOff().removeObservers(this);
-        cutOffViewModel.fetchCutOffForTodayToReprint().removeObservers(this);
-        endOfDayViewModel.fetchEndOfDayForTodayToReprint().removeObservers(this);
+        transactionsViewModel.fetchCompleteTransactions().removeObservers(getActivity());
+        transactionsViewModel.fetchCompleteTransactionsCutOff().removeObservers(getActivity());
+        cutOffViewModel.fetchCutOffForTodayToReprint().removeObservers(getActivity());
+        endOfDayViewModel.fetchEndOfDayForTodayToReprint().removeObservers(getActivity());
     }
 
     @Override

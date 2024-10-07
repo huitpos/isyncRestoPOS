@@ -248,10 +248,10 @@ public class ARPaymentDialog extends DialogFragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        paymentTypesViewModel.fetchAllWithOutAR().removeObservers(this);
-        posApplicationViewModel.getCurrentARTransactionId().removeObservers(this);
-        transactionsViewModel.getARCurrentTransaction().removeObservers(this);
-        paymentsViewModel.getCurrentARTransactionPayments().removeObservers(this);
+        paymentTypesViewModel.fetchAllWithOutAR().removeObservers(getActivity());
+        posApplicationViewModel.getCurrentARTransactionId().removeObservers(getActivity());
+        transactionsViewModel.getARCurrentTransaction().removeObservers(getActivity());
+        paymentsViewModel.getCurrentARTransactionPayments().removeObservers(getActivity());
     }
 
     private void initialize(){

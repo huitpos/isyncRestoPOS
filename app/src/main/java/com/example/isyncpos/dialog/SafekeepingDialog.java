@@ -322,7 +322,7 @@ public class SafekeepingDialog extends DialogFragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        cashDenominationViewModel.fetchCashDenomination().removeObservers(this);
-        safekeepingViewModel.getSafekeepingTotalLiveData().removeObservers(this);
+        cashDenominationViewModel.fetchCashDenomination().removeObservers(getActivity());
+        safekeepingViewModel.getSafekeepingTotalLiveData().removeObservers(getActivity());
     }
 }

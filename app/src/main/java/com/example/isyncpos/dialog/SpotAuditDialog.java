@@ -213,7 +213,7 @@ public class SpotAuditDialog extends DialogFragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        cashDenominationViewModel.fetchCashDenomination().removeObservers(this);
-        spotAuditViewModel.getSpotAuditTotalLiveData().removeObservers(this);
+        cashDenominationViewModel.fetchCashDenomination().removeObservers(getActivity());
+        spotAuditViewModel.getSpotAuditTotalLiveData().removeObservers(getActivity());
     }
 }

@@ -123,7 +123,7 @@ public class SyncDialog extends DialogFragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        syncViewModel.fetchAll().removeObservers(this);
+        syncViewModel.fetchAll().removeObservers(getActivity());
     }
 
 }

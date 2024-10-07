@@ -631,7 +631,33 @@ public class Order extends Fragment {
                         }
                     }
                     else{
-                        Toast.makeText(getContext(), "There is no item to discount.", Toast.LENGTH_LONG).show();
+                        ArrayList<Orders> allOrdersList = orderItemsAdapter.selectAllListOrders();
+                        if(posProcess.checkForPermission(BuildConfig.POS_ACCESS_DISCOUNTS)){
+                            DiscountDialog discountDialog = DiscountDialog.newDiscountDialog();
+                            discountDialog.setCancelable(false);
+                            discountDialog.setArgs(allOrdersList, orderItemsAdapter, null);
+                            discountDialog.show(getActivity().getSupportFragmentManager(), "Discount Dialog");
+                        }
+                        else{
+                            AuthenticateDialog authenticateDialog = new AuthenticateDialog(getActivity()) {
+                                @Override
+                                public void authentication(boolean success, @Nullable String message, UserAuthentication authorizeUser) {
+                                    if(success){
+                                        DiscountDialog discountDialog = DiscountDialog.newDiscountDialog();
+                                        discountDialog.setCancelable(false);
+                                        discountDialog.setArgs(allOrdersList, orderItemsAdapter, authorizeUser);
+                                        discountDialog.show(getActivity().getSupportFragmentManager(), "Discount Dialog");
+                                    }
+                                    else{
+                                        Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
+                                    }
+                                }
+                            };
+                            authenticateDialog.setPermissionId(BuildConfig.POS_ACCESS_DISCOUNTS);
+                            authenticateDialog.setOfflineAuthenticateViewModels(usersViewModel, rolesViewModel, permissionsViewModel);
+                            authenticateDialog.setCancelable(false);
+                            authenticateDialog.show();
+                        }
                     }
                 }
                 else {

@@ -150,10 +150,14 @@ public class OrderItemsAdapter extends ListAdapter<Orders, OrderItemsAdapter.Vie
         selectedListOrders.clear();
     }
 
-    public void selectAllListOrders(){
+    public ArrayList<Orders> selectAllListOrders(){
+        ArrayList<Orders> ordersList = new ArrayList<>();
         for(Orders order : getCurrentList()){
-            Log.d("ORDERS", "selectAllListOrders: " + order.getName());
+            if(order.getIsDiscountExempt() != 1){
+                if(order.getIsReturn() != 1) ordersList.add(order);
+            }
         }
+        return ordersList;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
