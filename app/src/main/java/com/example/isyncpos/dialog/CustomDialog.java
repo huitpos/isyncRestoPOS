@@ -3,17 +3,24 @@ package com.example.isyncpos.dialog;
 import android.app.Activity;
 import android.app.Dialog;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+
 import com.example.isyncpos.POSApplication;
 import com.example.isyncpos.R;
 import com.example.isyncpos.common.Dates;
+import com.example.isyncpos.entity.ChargeAccount;
 import com.example.isyncpos.entity.DiscountOtherInformations;
 import com.example.isyncpos.entity.DiscountTypeFieldOptions;
 import com.example.isyncpos.entity.DiscountTypeFields;
@@ -21,12 +28,15 @@ import com.example.isyncpos.entity.PaymentOtherInformations;
 import com.example.isyncpos.entity.PaymentTypeFieldOptions;
 import com.example.isyncpos.entity.PaymentTypeFields;
 import com.example.isyncpos.objects.FieldTypeObject;
+import com.example.isyncpos.viewmodel.ChargeAccountViewModel;
 import com.example.isyncpos.viewmodel.DiscountTypeFieldOptionsViewModel;
 import com.example.isyncpos.viewmodel.PaymentTypeFieldOptionsViewModel;
 import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.ExecutionException;
 
 public abstract class CustomDialog extends Dialog {
@@ -37,15 +47,23 @@ public abstract class CustomDialog extends Dialog {
     private PaymentTypeFieldOptionsViewModel paymentTypeFieldOptionsViewModel;
     private DiscountTypeFieldOptionsViewModel discountTypeFieldOptionsViewModel;
     private MaterialButton btnCustomDialogNegative, btnCustomDialogPositive;
+    private ChargeAccountViewModel chargeAccountViewModel;
     private String method;
     private Dates date;
+    private boolean isAccountReceivable = false;
+    // Data source for suggestions
+    private List<String> chargeAccountSuggestions = new ArrayList<>();
+    private ChargeAccount chargeAccount;
+    private Timer timer;
+    private Activity activity;
 
-    public abstract void confirmPayment(List<PaymentOtherInformations> paymentOtherInformations);
+    public abstract void confirmPayment(List<PaymentOtherInformations> paymentOtherInformations, @Nullable ChargeAccount chargeAccount);
     public abstract void confirmDiscount(List<DiscountOtherInformations> discountOtherInformations);
 
 
     public CustomDialog(Activity activity, String method){
         super(activity);
+        this.activity = activity;
         this.method = method;
     }
 
@@ -65,13 +83,26 @@ public abstract class CustomDialog extends Dialog {
         this.discountTypeFieldOptionsViewModel = discountTypeFieldOptionsViewModel;
     }
 
+    public void setIsAccountReceivable(boolean isAccountReceivable){
+        this.isAccountReceivable = isAccountReceivable;
+    }
+
+    public void setChargeAccountViewModel(ChargeAccountViewModel chargeAccountViewModel){
+        this.chargeAccountViewModel = chargeAccountViewModel;
+    }
+
     public void initializeCustom(){
         if(method.equals("Payment")){
             paymentTypeFields.forEach(item -> {
                 if(item.getFieldType() != null){
                     addCustomTextLabel(item.getName());
                     if(item.getFieldType().equals("textbox")){
-                        addCustomTextField(item.getName(), 0);
+                        if(isAccountReceivable && item.getName().equals("CUSTOMER'S NAME:")){
+                            addCustomAutoCompleteTextField(item.getName(), 0);
+                        }
+                        else{
+                            addCustomTextField(item.getName(), 0);
+                        }
                     } else if (item.getFieldType().equals("select")) {
                         try {
                             List<String> options = new ArrayList<>();
@@ -126,6 +157,44 @@ public abstract class CustomDialog extends Dialog {
         container.addView(editText);
     }
 
+    private void addCustomAutoCompleteTextField(String tag, int isRequired){
+        AutoCompleteTextView autoCompleteTextView = new AutoCompleteTextView(getContext());
+        autoCompleteTextView.setTag(new FieldTypeObject(tag, isRequired));
+        // Set up the adapter with an empty list initially
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_dropdown_item_1line, chargeAccountSuggestions);
+        autoCompleteTextView.setAdapter(adapter);
+        autoCompleteTextView.setThreshold(1);
+        autoCompleteTextView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                Log.d("onTextChanged", "onTextChanged: " + editable.toString());
+                timer = new Timer();
+                timer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        try {
+                            chargeAccount = chargeAccountViewModel.fetchByName(editable.toString());
+                            LoopARCustomField(editable.toString());
+                        } catch (ExecutionException | InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                }, 500);
+            }
+        });
+        container.addView(autoCompleteTextView);
+    }
+
     private void addCustomSpinner(List<String> options, String tag, int isRequired){
         Spinner spinner = new Spinner(getContext());
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, options);
@@ -133,6 +202,32 @@ public abstract class CustomDialog extends Dialog {
         spinner.setAdapter(adapter);
         spinner.setTag(new FieldTypeObject(tag, isRequired));
         container.addView(spinner);
+    }
+
+    private void LoopARCustomField(String name){
+        if(chargeAccount != null){
+            int childCount = container.getChildCount();
+            if(method.equals("Payment")){
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        for (int i = 0; i < childCount; i++) {
+                            View view = container.getChildAt(i);
+                            if (view instanceof EditText) {
+                                EditText editText = (EditText) view;
+                                FieldTypeObject fieldTypeObject = (FieldTypeObject) editText.getTag();
+                                if(fieldTypeObject.getName().equals("ADDRESS:")){
+                                    editText.setText(chargeAccount.getAddress());
+                                }
+                                if(fieldTypeObject.getName().equals("MOBILE NO.:")){
+                                    editText.setText(chargeAccount.getContactNumber());
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
     }
 
     private void LoopCustomField(){
@@ -229,7 +324,7 @@ public abstract class CustomDialog extends Dialog {
                 }
             }
             if(processData){
-                confirmPayment(paymentOtherInformations);
+                confirmPayment(paymentOtherInformations, chargeAccount);
                 dismiss();
             }
             else{
@@ -343,6 +438,7 @@ public abstract class CustomDialog extends Dialog {
         setCancelable(false);
         initialize();
         initializeCustom();
+        if(isAccountReceivable) initChargeAccounts();
         btnCustomDialogNegative.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -362,6 +458,19 @@ public abstract class CustomDialog extends Dialog {
         btnCustomDialogPositive = findViewById(R.id.btnCustomDialogPositive);
         container = findViewById(R.id.linearCustomForm);
         date = new Dates();
+    }
+
+    private void initChargeAccounts(){
+        if(chargeAccountViewModel != null){
+            try {
+                List<ChargeAccount> chargeAccounts = chargeAccountViewModel.fetchAll();
+                chargeAccounts.forEach(item -> {
+                    chargeAccountSuggestions.add(item.getName());
+                });
+            } catch (ExecutionException | InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
 }

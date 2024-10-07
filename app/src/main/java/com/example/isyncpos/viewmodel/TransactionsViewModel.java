@@ -151,4 +151,8 @@ public class TransactionsViewModel extends AndroidViewModel {
         transactionsRepository.updateTransactionAR(transactionId, isAccountReceivable);
     }
 
+    public void updateChargeAccount(int transactionId, int chargeAccountId, String chargeAccountName){
+        transactionsRepository.updateChargeAccount(transactionId, chargeAccountId, chargeAccountName);
+    }
+
 }

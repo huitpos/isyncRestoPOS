@@ -139,6 +139,7 @@ public class PaymentsAdapter extends ListAdapter<Payments, PaymentsAdapter.ViewH
                                         PaymentTypes paymentTypes = paymentTypesViewModel.fetchById(payments.getPaymentTypeId());
                                         if(paymentTypes.getIsAR() == 1){
                                             transactionsViewModel.updateTransactionAR(POSApplication.getInstance().getCurrentTransaction(), 0);
+                                            transactionsViewModel.updateChargeAccount(POSApplication.getInstance().getCurrentTransaction(), 0, "");
                                         }
                                     } catch (ExecutionException e) {
                                         throw new RuntimeException(e);

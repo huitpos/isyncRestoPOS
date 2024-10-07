@@ -34,6 +34,7 @@ import com.example.isyncpos.common.Dates;
 import com.example.isyncpos.common.Font;
 import com.example.isyncpos.common.Generate;
 import com.example.isyncpos.common.LoadingDialog;
+import com.example.isyncpos.entity.ChargeAccount;
 import com.example.isyncpos.entity.DiscountOtherInformations;
 import com.example.isyncpos.entity.OfficialReceiptInformation;
 import com.example.isyncpos.entity.PaymentOtherInformations;
@@ -43,6 +44,7 @@ import com.example.isyncpos.entity.Payments;
 import com.example.isyncpos.entity.Transactions;
 import com.example.isyncpos.preferences.Cache;
 import com.example.isyncpos.process.POSProcess;
+import com.example.isyncpos.viewmodel.ChargeAccountViewModel;
 import com.example.isyncpos.viewmodel.OfficialReceiptInformationViewModel;
 import com.example.isyncpos.viewmodel.POSApplicationViewModel;
 import com.example.isyncpos.viewmodel.PaymentTypeFieldOptionsViewModel;
@@ -76,6 +78,7 @@ public class ARPaymentDialog extends DialogFragment {
     private PaymentTypeFieldOptionsViewModel paymentTypeFieldOptionsViewModel;
     private OfficialReceiptInformationViewModel officialReceiptInformationViewModel;
     private OfficialReceiptInformation officialReceiptInformationData;
+    private ChargeAccountViewModel chargeAccountViewModel;
     private POSProcess posProcess;
     private POSApplicationViewModel posApplicationViewModel;
     private View view;
@@ -286,6 +289,7 @@ public class ARPaymentDialog extends DialogFragment {
         paymentTypeFieldsViewModel = POSApplication.getInstance().getPaymentTypeFieldsViewModel();
         paymentTypeFieldOptionsViewModel = POSApplication.getInstance().getPaymentTypeFieldOptionsViewModel();
         officialReceiptInformationViewModel = POSApplication.getInstance().getOfficialReceiptInformationViewModel();
+        chargeAccountViewModel = POSApplication.getInstance().getChargeAccountViewModel();
     }
 
     private void initPOSProcess(){
@@ -427,7 +431,7 @@ public class ARPaymentDialog extends DialogFragment {
                         if(payments.isEmpty()){
                             CustomDialog customDialog = new CustomDialog(getActivity(), "Payment") {
                                 @Override
-                                public void confirmPayment(List<PaymentOtherInformations> paymentOtherInformations) {
+                                public void confirmPayment(List<PaymentOtherInformations> paymentOtherInformations, ChargeAccount chargeAccount) {
                                     completeProcessAddPayment(paymentTypes, paymentOtherInformations);
                                 }
 
@@ -438,6 +442,8 @@ public class ARPaymentDialog extends DialogFragment {
                             };
                             customDialog.setPaymentTypeFields(paymentTypeFields);
                             customDialog.setPaymentTypeFieldOptionsViewModel(paymentTypeFieldOptionsViewModel);
+                            customDialog.setChargeAccountViewModel(chargeAccountViewModel);
+                            customDialog.setIsAccountReceivable(paymentTypes.getIsAR() == 1 ? true : false);
                             customDialog.setCancelable(false);
                             customDialog.show();
                         }
@@ -448,7 +454,7 @@ public class ARPaymentDialog extends DialogFragment {
                     else{
                         CustomDialog customDialog = new CustomDialog(getActivity(), "Payment") {
                             @Override
-                            public void confirmPayment(List<PaymentOtherInformations> paymentOtherInformations) {
+                            public void confirmPayment(List<PaymentOtherInformations> paymentOtherInformations, ChargeAccount chargeAccount) {
                                 completeProcessAddPayment(paymentTypes, paymentOtherInformations);
                             }
 
@@ -459,6 +465,8 @@ public class ARPaymentDialog extends DialogFragment {
                         };
                         customDialog.setPaymentTypeFields(paymentTypeFields);
                         customDialog.setPaymentTypeFieldOptionsViewModel(paymentTypeFieldOptionsViewModel);
+                        customDialog.setChargeAccountViewModel(chargeAccountViewModel);
+                        customDialog.setIsAccountReceivable(paymentTypes.getIsAR() == 1 ? true : false);
                         customDialog.setCancelable(false);
                         customDialog.show();
                     }
@@ -468,7 +476,7 @@ public class ARPaymentDialog extends DialogFragment {
                     if(payments.isEmpty()){
                         CustomDialog customDialog = new CustomDialog(getActivity(), "Payment") {
                             @Override
-                            public void confirmPayment(List<PaymentOtherInformations> paymentOtherInformations) {
+                            public void confirmPayment(List<PaymentOtherInformations> paymentOtherInformations, ChargeAccount chargeAccount) {
                                 completeProcessAddPayment(paymentTypes, paymentOtherInformations);
                             }
 
@@ -479,6 +487,8 @@ public class ARPaymentDialog extends DialogFragment {
                         };
                         customDialog.setPaymentTypeFields(paymentTypeFields);
                         customDialog.setPaymentTypeFieldOptionsViewModel(paymentTypeFieldOptionsViewModel);
+                        customDialog.setChargeAccountViewModel(chargeAccountViewModel);
+                        customDialog.setIsAccountReceivable(paymentTypes.getIsAR() == 1 ? true : false);
                         customDialog.setCancelable(false);
                         customDialog.show();
                     }

@@ -35,4 +35,8 @@ public class ChargeAccountViewModel extends AndroidViewModel {
         return chargeAccountRepository.fetchAll();
     }
 
+    public ChargeAccount fetchByName(String name) throws ExecutionException, InterruptedException {
+        return chargeAccountRepository.fetchByName(name);
+    }
+
 }

@@ -18,10 +18,13 @@ public interface ChargeAccountDAO {
     @Update
     void update(ChargeAccount chargeAccount);
 
-    @Query("SELECT * FROM chargeAccount WHERE id = :id")
+    @Query("SELECT * FROM chargeAccount WHERE coreId = :id")
     ChargeAccount fetchById(int id);
 
     @Query("SELECT * FROM chargeAccount")
     List<ChargeAccount> fetchAll();
+
+    @Query("SELECT * FROM chargeAccount WHERE name = :name")
+    ChargeAccount fetchByName(String name);
 
 }

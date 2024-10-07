@@ -86,4 +86,7 @@ public interface TransactionsDAO {
     @Query("UPDATE transactions SET isAccountReceivable = :isAccountReceivable WHERE id = :transactionId")
     void updateTransactionAR(int transactionId, int isAccountReceivable);
 
+    @Query("UPDATE transactions SET chargeAccountId = :chargeAccountId, chargeAccountName = :chargeAccountName WHERE id = :transactionId")
+    void updateChargeAccount(int transactionId, int chargeAccountId, String chargeAccountName);
+
 }

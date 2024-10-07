@@ -64,4 +64,15 @@ public class ChargeAccountRepository {
         return future.get();
     }
 
+    public ChargeAccount fetchByName(String name) throws ExecutionException, InterruptedException {
+        Callable<ChargeAccount> callable = new Callable<ChargeAccount>() {
+            @Override
+            public ChargeAccount call() throws Exception {
+                return chargeAccountDAO.fetchByName(name);
+            }
+        };
+        Future<ChargeAccount> future = Executors.newSingleThreadExecutor().submit(callable);
+        return future.get();
+    }
+
 }

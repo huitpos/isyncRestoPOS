@@ -1956,8 +1956,10 @@ public class POSProcess {
             cutOff.setIsSentToServer(0);
             cutOff.setIsComplete(1);
             cutOffViewModel.update(cutOff);
-            Printer.getInstance().print(activity, printerSetupDevicesViewModel.fetchPrinterSetupDevicesPrinterSetupID(BuildConfig.APP_X_READING), Printer.getInstance().cutOff(cutOff, cutOffDiscounts, cutOffPayments, lastSKDenominations, cashFunds, cutOffDepartments));
-            Writer.getInstance().writeTransaction(activity, Printer.getInstance().cutOff(cutOff, cutOffDiscounts, cutOffPayments, lastSKDenominations, cashFunds, cutOffDepartments));
+            //Set The Content
+            String printContent = Printer.getInstance().cutOff(cutOff, cutOffDiscounts, cutOffPayments, lastSKDenominations, cashFunds, cutOffDepartments);
+            Printer.getInstance().print(activity, printerSetupDevicesViewModel.fetchPrinterSetupDevicesPrinterSetupID(BuildConfig.APP_X_READING), printContent.replace("{{HEADER}}", ""));
+            Writer.getInstance().writeTransaction(activity, printContent.replace("{{HEADER}}", ""));
         } catch (ExecutionException e) {
             throw new RuntimeException(e);
         } catch (InterruptedException e) {
@@ -2152,8 +2154,10 @@ public class POSProcess {
             endOfDay.setIsComplete(1);
             endOfDay.setPrintString(Printer.getInstance().endOfDay(endOfDay, endOfDayDepartments, endOfDayDiscounts, endOfDayPayments));
             endOfDayViewModel.update(endOfDay);
-            Printer.getInstance().print(activity, printerSetupDevicesViewModel.fetchPrinterSetupDevicesPrinterSetupID(BuildConfig.APP_Z_READING), Printer.getInstance().endOfDay(endOfDay, endOfDayDepartments, endOfDayDiscounts, endOfDayPayments));
-            Writer.getInstance().writeTransaction(activity, Printer.getInstance().endOfDay(endOfDay, endOfDayDepartments, endOfDayDiscounts, endOfDayPayments));
+            //Set Content Printer
+            String printerContent = Printer.getInstance().endOfDay(endOfDay, endOfDayDepartments, endOfDayDiscounts, endOfDayPayments);
+            Printer.getInstance().print(activity, printerSetupDevicesViewModel.fetchPrinterSetupDevicesPrinterSetupID(BuildConfig.APP_Z_READING), printerContent.replace("{{HEADER}}", ""));
+            Writer.getInstance().writeTransaction(activity, printerContent.replace("{{HEADER}}", ""));
         } catch (ExecutionException e) {
             throw new RuntimeException(e);
         } catch (InterruptedException e) {

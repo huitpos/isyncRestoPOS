@@ -35,6 +35,7 @@ import com.example.isyncpos.common.Dates;
 import com.example.isyncpos.common.Font;
 import com.example.isyncpos.common.Generate;
 import com.example.isyncpos.common.LoadingDialog;
+import com.example.isyncpos.entity.ChargeAccount;
 import com.example.isyncpos.entity.DiscountOtherInformations;
 import com.example.isyncpos.entity.DiscountTypeDepartments;
 import com.example.isyncpos.entity.DiscountTypeFields;
@@ -263,7 +264,7 @@ public class DiscountDialog extends DialogFragment implements View.OnClickListen
                                                     public void process(boolean success, DiscountTypes discountTypes) {
                                                         CustomDialog customDialog = new CustomDialog(getActivity(), "Discount") {
                                                             @Override
-                                                            public void confirmPayment(List<PaymentOtherInformations> paymentOtherInformations) {
+                                                            public void confirmPayment(List<PaymentOtherInformations> paymentOtherInformations, ChargeAccount chargeAccount) {
                                                                 //Do Nothing
                                                             }
 
@@ -480,7 +481,7 @@ public class DiscountDialog extends DialogFragment implements View.OnClickListen
                                             else{
                                                 CustomDialog customDialog = new CustomDialog(getActivity(), "Discount") {
                                                     @Override
-                                                    public void confirmPayment(List<PaymentOtherInformations> paymentOtherInformations) {
+                                                    public void confirmPayment(List<PaymentOtherInformations> paymentOtherInformations, ChargeAccount chargeAccount) {
                                                         //Do Nothing
                                                     }
 

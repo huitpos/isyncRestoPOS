@@ -1382,6 +1382,8 @@ public class Printer {
                 "[C]SERIAL NO: "+ POSApplication.getInstance().getMachineDetails().getSerialNumber() +"\n" +
                 "[C]MACHINE NO: "+ POSApplication.getInstance().getMachineDetails().getMachineNumber() +"\n" +
                 "[L]\n" +
+                "{{HEADER}}" +
+                "[L]\n" +
                 "[C]------------------------------------------------\n" +
                 "[C]X Reading Report\n" +
                 "[C]------------------------------------------------\n" +
@@ -1531,6 +1533,8 @@ public class Printer {
                 "[C]PERMIT TO USE NO: "+ POSApplication.getInstance().getMachineDetails().getPermitNumber() +"\n" +
                 "[C]SERIAL NO: "+ POSApplication.getInstance().getMachineDetails().getSerialNumber() +"\n" +
                 "[C]MACHINE NO: "+ POSApplication.getInstance().getMachineDetails().getMachineNumber() +"\n" +
+                "[L]\n" +
+                "{{HEADER}}" +
                 "[L]\n" +
                 "[C]------------------------------------------------\n" +
                 "[C]Z Reading Report\n" +

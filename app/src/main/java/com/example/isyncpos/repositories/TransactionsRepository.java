@@ -257,4 +257,14 @@ public class TransactionsRepository {
         });
     }
 
+    public void updateChargeAccount(int transactionId, int chargeAccountId, String chargeAccountName){
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                transactionsDAO.updateChargeAccount(transactionId, chargeAccountId, chargeAccountName);
+            }
+        });
+    }
+
 }
