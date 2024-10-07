@@ -116,7 +116,7 @@ public class PaymentDialog extends DialogFragment {
             throw new RuntimeException(e);
         }
 
-        transactionsViewModel.getCurrentTransaction().observe(getActivity(), new Observer<Transactions>() {
+        transactionsViewModel.getCurrentTransaction().observe(this, new Observer<Transactions>() {
             @Override
             public void onChanged(Transactions transactions) {
                 if(transactions != null){
@@ -274,7 +274,7 @@ public class PaymentDialog extends DialogFragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        transactionsViewModel.getCurrentTransaction().removeObservers(getActivity());
+        transactionsViewModel.getCurrentTransaction().removeObservers(this);
         paymentTypesViewModel.fetchAll().removeObservers(getActivity());
         paymentsViewModel.getCurrentTransactionPayments().removeObservers(getActivity());
     }
